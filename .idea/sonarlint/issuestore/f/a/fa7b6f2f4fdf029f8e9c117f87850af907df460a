@@ -1,12 +1,23 @@
 
-python:S1192‡"vDefine a constant instead of duplicating this literal "#####################################################" 6 times.(·ÍØ
-}python:S1192p"fDefine a constant instead of duplicating this literal "#####################################" 7 times.(ôÖR
-‚python:S1192‰"iDefine a constant instead of duplicating this literal "tu saldo en tu cuenta dolares es de: u$s" 3 times.(˜“œØ
-ƒpython:S1192ˆ"eDefine a constant instead of duplicating this literal "tu saldo en tu cuenta pesos es de: $" 3 times.(¡¥Ïçüÿÿÿÿ
-‚python:S1192)"jDefine a constant instead of duplicating this literal "#########################################" 6 times.(ÕÖ¾À
-npython:S1542	"QRename function "menu_plazoP" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤Òî“ûÿÿÿÿ
-npython:S1542"QRename function "menu_plazoD" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦ğå‘ıÿÿÿÿ
-xpython:S117v"\Rename this local variable "compraDolar" to match the regular expression ^[_a-z][a-z0-9_]*$.(í²Šıÿÿÿÿ
-tpython:S117—"\Rename this local variable "venderDolar" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÍ‘²
-Bpython:S1481Š")Remove the unused local variable "other".(›œ†Š
-mpython:S3776"URefactor this function to reduce its Cognitive Complexity from 128 to the 15 allowed.(á”äñ
+python:S1192ƒ"vDefine a constant instead of duplicating this literal "#####################################################" 6 times.(·ÍØ
+}python:S1192l"fDefine a constant instead of duplicating this literal "#####################################" 7 times.(ôÖR
+‚python:S1192…"iDefine a constant instead of duplicating this literal "tu saldo en tu cuenta dolares es de: u$s" 3 times.(˜“œØ
+ƒpython:S1192„"eDefine a constant instead of duplicating this literal "tu saldo en tu cuenta pesos es de: $" 3 times.(¡¥Ïçüÿÿÿÿ
+‚python:S1192$"jDefine a constant instead of duplicating this literal "#########################################" 6 times.(ÕÖ¾À
+npython:S1542"QRename function "menu_plazoP" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤Òî“ûÿÿÿÿ
+npython:S1542"QRename function "menu_plazoD" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦ğå‘ıÿÿÿÿ
+xpython:S117r"\Rename this local variable "compraDolar" to match the regular expression ^[_a-z][a-z0-9_]*$.(í²Šıÿÿÿÿ
+tpython:S117“"\Rename this local variable "venderDolar" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÍ‘²
+Bpython:S1481†")Remove the unused local variable "other".(›œ†Š
+mpython:S3776"URefactor this function to reduce its Cognitive Complexity from 128 to the 15 allowed.(á”äñ
+python:S1192ƒ"vDefine a constant instead of duplicating this literal "#####################################################" 6 times.(·ÍØ
+}python:S1192l"fDefine a constant instead of duplicating this literal "#####################################" 7 times.(ôÖR
+‚python:S1192…"iDefine a constant instead of duplicating this literal "tu saldo en tu cuenta dolares es de: u$s" 3 times.(˜“œØ
+ƒpython:S1192„"eDefine a constant instead of duplicating this literal "tu saldo en tu cuenta pesos es de: $" 3 times.(¡¥Ïçüÿÿÿÿ
+‚python:S1192$"jDefine a constant instead of duplicating this literal "#########################################" 6 times.(ÕÖ¾À
+npython:S1542"QRename function "menu_plazoP" to match the regular expression ^[a-z_][a-z0-9_]*$.(¤Òî“ûÿÿÿÿ
+npython:S1542"QRename function "menu_plazoD" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦ğå‘ıÿÿÿÿ
+xpython:S117r"\Rename this local variable "compraDolar" to match the regular expression ^[_a-z][a-z0-9_]*$.(í²Šıÿÿÿÿ
+tpython:S117“"\Rename this local variable "venderDolar" to match the regular expression ^[_a-z][a-z0-9_]*$.(àÍ‘²
+Bpython:S1481†")Remove the unused local variable "other".(›œ†Š
+mpython:S3776"URefactor this function to reduce its Cognitive Complexity from 128 to the 15 allowed.(á”äñ

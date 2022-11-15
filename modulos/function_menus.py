@@ -1,5 +1,4 @@
 """
-@GriseldaSanchez
 modulo con funciones principales y menu
 """
 # funcion que calcula ganancia plazo fijo en pesos
@@ -60,20 +59,28 @@ def menu(saldo, dolar):
                 print("")
             # depositar dinero
             case 2:
-                print("#########################################")
-                ingreso = float(input(
-                    "digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
-                print("#########################################")
+                while True:
+                    try:
+                        print("#########################################")
+                        ingreso = float(input("digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
+                        print("#########################################")
+                        break
+                    except ValueError:
+                        print("Error, debe ingresar un dato numerico: ")
                 saldo += ingreso
                 print("--Gracias por ingresar su dinero, su saldo actual es de: $", saldo, "--")
                 list_ingreso.append(ingreso)
             # extraer dinero
             case 3:
                 while True:
-                    extraccion = float(input("ingresa el monto a extraer: "))
+                    while True:
+                        try:
+                            extraccion = float(input("ingresa el monto a extraer: "))
+                            break
+                        except ValueError:
+                            print("Error, debe ingresar un numero entero:")
                     if extraer(saldo, extraccion) == 0:
-                        print(
-                            f"Monto excedido al saldo, su saldo es de ${saldo}")
+                        print(f"Monto excedido al saldo, su saldo es de ${saldo}")
                     else:
                         break
                 saldo -= extraccion
@@ -81,12 +88,16 @@ def menu(saldo, dolar):
                 list_extrac.append(extraccion)
             # transferir dinero
             case 4:
-                tranferir = (
-                    input("ingrese el Alias/CBU de la cuenta a la cual deseas tranferir: "))
+                tranferir = (input("ingrese el Alias/CBU de la cuenta a la cual deseas tranferir: "))
                 while True:
-                    monto1 = float(input("ingresa el monto a tranferir: "))
-                    print("#########################################################")
-                    print("#########################################################")
+                    while True:
+                        try:
+                            monto1 = float(input("ingresa el monto a tranferir: "))
+                            print("#########################################################")
+                            print("#########################################################")
+                            break
+                        except ValueError:
+                            print("Error, debe ingresar un numero entero:")
                     if extraer(saldo, monto1) == 0:
                         print(
                             f"Monto excedido al saldo, su saldo es de ${saldo}")
@@ -111,18 +122,20 @@ def menu(saldo, dolar):
                 print(f"    Tu saldo en pesos es de ${saldo}")
                 print("#####################################")
                 while True:
-                    compraDolar = float(
-                        input("ingresa el monto de dolares a comprar: "))
+                    while True:
+                        try:
+                            compraDolar = float(input("ingresa el monto de dolares a comprar: "))
+                            break
+                        except ValueError:
+                            print("Error, debe ingresar un numero entero:")
                     conversiond = compraDolar * 164.5
-
                     print("#####################################")
                     if extraer(saldo, conversiond) == 0:
                         print(
                             f"Monto excedido al saldo, su saldo es de ${saldo}")
                     else:
                         break
-                confirma = (input(
-                    f"¿estas seguro de comprar : u$s {compraDolar} dolares ? ingresa \n #si para confirmar. \n #no para cancelar "))
+                confirma = (input(f"¿estas seguro de comprar : u$s {compraDolar} dolares ? ingresa \n #si para confirmar. \n #no para cancelar ")).lower()
                 print("#####################################")
                 if confirma == "si":
                     conversiond = compraDolar * 164.5
@@ -144,23 +157,24 @@ def menu(saldo, dolar):
                 print("    tu saldo en dolares es de: ", dolar)
                 print("#####################################")
                 while True:
-                    venderDolar = float(
-                        input("Ingresa el monto de dolares a vender: "))
+                    while True:
+                        try:
+                            venderDolar = float(input("Ingresa el monto de dolares a vender: "))
+                            break
+                        except ValueError: print("Error, debe ingresar un numero entero")
                     if extraer(dolar, venderDolar) == 0:
-                        print(
-                            f"Monto excedido al saldo, su saldo es de ${saldo}")
+                        print(f"Monto excedido al saldo, su saldo es de ${saldo}")
                     else:
                         break
-                confirma = (input(
-                    f"¿estas seguro de vender u$s{venderDolar}? ingresa \n #si para confirmar. \n #no para cancelar "))
-                print("#####################################")
+                confirma = (input(f"¿estas seguro de vender u$s{venderDolar}? ingresa \n #si para confirmar. \n #no para cancelar ")).lower()
+                print("##############################################")
                 if confirma == "si":
                     conversionp = venderDolar * 170
                     saldo += conversionp
                     dolar -= venderDolar
                     print("#####################################################")
-                    print("tu saldo en tu cuenta pesos es de: $", saldo)
-                    print("tu saldo en tu cuenta dolares es de: u$s", dolar)
+                    print("tu saldo en tu cuenta pesos es de: $", round(saldo,2))
+                    print("tu saldo en tu cuenta dolares es de: u$s", round(dolar,2))
                     print("#####################################################")
                 elif confirma == "no":
                     print("has cancelado tu compra")
@@ -172,34 +186,41 @@ def menu(saldo, dolar):
                 print("#####################################################")
                 print("tu saldo en tu cuenta pesos es de: $", saldo)
                 print("tu saldo en tu cuenta dolares es de: u$s", dolar)
-                op = int(input(
-                    "Para plazo fijo en Pesos ingrese 1: \n Para plazo Fijo en dolares ingrese 2: "))
-                print("#####################################################")
+                while True:
+                    try:
+                        op = int(input("Para plazo fijo en Pesos ingrese 1:\n Para plazo Fijo en dolares ingrese 2: "))
+                        print("#####################################################")
+                        break
+                    except ValueError: print("Error, debe ingresar un numero entero")
                 match op:
                     # plazo fijo funciona. hay que consultar saldo antes de hacerlo sino bucle infinito.
                     # plazo fijo en pesos
                     case 1:
                         while True:
-                            monto = float(
-                                input("Ingrese el monto a invertir (minimo de $1500): "))
-                            if monto <= 1500 or extraer(saldo, monto) == 0:
-                                print(
-                                    "monto debe ser mayor a $1500 o monto excedido para la operacion")
+                            while True:
+                                try:
+                                    monto = float(input("Ingrese el monto a invertir (minimo de $1500): "))
+                                    break
+                                except ValueError:print("Error, debe ingresar un numero entero")
+                            if monto < 1500 or extraer(saldo, monto) == 0:
+                                print("monto debe ser mayor a $1500 o monto excedido para la operacion")
                             else:
                                 break
                         while True:
-                            dias = int(
-                                input("Ingrese el plazo (minimo 30 dias): "))
+                            while True:
+                                try:
+                                    dias = int(input("Ingrese el plazo (minimo 30 dias): "))
+                                    break
+                                except ValueError:print("Error, debe ingresar un numero entero")
                             if dias < 30:
                                 print("El plazo debe ser mayor a 30 dias: ")
                             else:
                                 break
                         plazo_en_pesos = menu_plazoP(monto, dias)
-                        confir = input(
-                            (f"Generará una ganancia de ${plazo_en_pesos} ¿Confirmar?  SI o NO")).upper()
+                        confir = input((f"Generará una ganancia de ${plazo_en_pesos} ¿Confirmar?  SI o NO\n")).upper()
                         if confir == "SI":
                             saldo -= monto
-                            print(f"Transacción exitosa saldo actual {saldo}")
+                            print(f"Transacción exitosa saldo actual {round(saldo,2)}")
                         elif confir == "NO":
                             print("Plazo Fijo Cancelado.")
                         else:
@@ -208,32 +229,40 @@ def menu(saldo, dolar):
                         # plazo fijo en dolares
                     case 2:
                         while True:
-                            monto2 = float(
-                                input("Ingrese el monto a invertir (minimo de u$s100): "))
-                            if monto2 <= 100 or extraer(dolar, monto2) == 0:
+                            while True:
+                                try:
+                                    monto2 = float(input("Ingrese el monto a invertir (minimo de u$s100): "))
+                                    break
+                                except ValueError:print("Error, debe ingresar un numero entero")   
+                            if monto2 < 100 or extraer(dolar, monto2) == 0:
                                 print(
                                     "monto debe ser mayor a u$s100 o monto excedido para la operacion: ")
                             else:
                                 break
                         while True:
-                            dias2 = int(
-                                input("Ingrese el plazo (minimo 30 dias): "))
+                            while True:
+                                try:
+                                    dias2 = int(input("Ingrese el plazo (minimo 30 dias): "))
+                                    break
+                                except ValueError:print("Error, debe ingresar un numero entero")
                             if dias2 <= 30:
                                 print("El plazo debe ser mayor a 30 dias: ")
                             else:
                                 break
                         plazo_en_dolares = menu_plazoD(monto2, dias2)
                         confirm = input(
-                            (f"Generará una ganancia de ${plazo_en_dolares} ¿Confirmar?  SI o NO")).upper()
+                            (f"Generará una ganancia de ${plazo_en_dolares} ¿Confirmar?  SI o NO\n")).upper()
                         if confirm == "SI":
                             dolar -= monto2
                             print(
-                                f"Transacción exitosa saldo actual u$S{dolar}")
+                                f"Transacción exitosa saldo actual u$S{round(dolar,2)}")
                         elif confirm == "NO":
                             print("Plazo Fijo Cancelado.")
                         else:
                             print(f"Opcion no valida.")
                         list_plazo_dolar.append(monto2)
+                    case other:
+                        print("Opcion invalida: 1-plazo fijo en peso 2-plazo fijo en dolares")
             # consultar ultimos movimientos
             case 8:
                 for i in list_ingreso:
@@ -272,8 +301,7 @@ def usuario():
     while True:
         # uso de try y except para capturar error de tipo
         try:
-            clave = int(
-                input("ingresa tu clave para acceder a tu cuenta: La clave es 1234: "))
+            clave = int(input("ingresa tu clave para acceder a tu cuenta: La clave es 1234: "))
             if clave == 1234:
                 print("")
                 print("#########################################")
