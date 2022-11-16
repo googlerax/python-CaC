@@ -1,4 +1,3 @@
-
 from random import uniform
 
 from modulos.function_menus import *
