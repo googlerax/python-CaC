@@ -2,19 +2,16 @@
 modulo con funciones principales y menu
 """
 # funcion que calcula ganancia plazo fijo en pesos
-
 def menu_plazoP(monto, dias):
     ganan = (dias * 92.47)/30
     return round(monto + ganan, 2)
 
 # funcion que calcula ganancia plazo fijo en dólares
-
 def menu_plazoD(monto, dias):
     ganan = (dias * 0.04) / 30
     return round(monto + ganan, 2)
 
 # funcion que calcula el valor maximo con funcion max() entre el saldo y la extraccion de dinero, si retorna 0, significa que se excede al saldo.
-
 def extraer(saldo, monto):
     return max(saldo-monto, 0)
 
@@ -31,7 +28,7 @@ def menu(saldo, dolar):
     while True:
         print("")
         print("----------MENU PRINCIPAL-----------------")
-        print("seleciona una opcion: ")
+        print("Seleciona una opcion: ")
         print("#########################################")
         print("     #1  consultar saldo")
         print("     #2  depositar dinero")
@@ -45,24 +42,25 @@ def menu(saldo, dolar):
         print("#########################################")
         while True:
             try:
-                opcion = int(input("ingresa tu opcion:\n "))
+                opcion = int(input("Ingresa tu opcion:\n "))
                 break
             except ValueError:
                 print("Error, debe ingresar un numero entero: ")
                 print("")
+        #a partir de python 3.10 se implementa el condicional switch llamado 'match.
         match opcion:
             # consultar saldo
             case 1:
                 print("")
                 print(f"Tu saldo actual en pesos es de: ${saldo}")
-                print(f"Tu saldo actual en dolares es de: ${dolar}")
+                print(f"Tu saldo actual en dolares es de: uS${dolar}")
                 print("")
             # depositar dinero
             case 2:
                 while True:
                     try:
                         print("#########################################")
-                        ingreso = float(input("digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
+                        ingreso = float(input("Digite por teclado el monto de su dinero a ingresar y luego inserte su dinero: "))
                         print("#########################################")
                         break
                     except ValueError:
@@ -75,7 +73,7 @@ def menu(saldo, dolar):
                 while True:
                     while True:
                         try:
-                            extraccion = float(input("ingresa el monto a extraer: "))
+                            extraccion = float(input("Ingresa el monto a extraer: "))
                             break
                         except ValueError:
                             print("Error, debe ingresar un numero entero:")
@@ -84,20 +82,20 @@ def menu(saldo, dolar):
                     else:
                         break
                 saldo -= extraccion
-                print("gracias por extraer, tu saldo restante es: $", saldo)
+                print("Gracias por extraer, tu saldo restante es: $", saldo)
                 list_extrac.append(extraccion)
             # transferir dinero
             case 4:
-                tranferir = (input("ingrese el Alias/CBU de la cuenta a la cual deseas tranferir: "))
+                tranferir = (input("Ingrese el Alias/CBU de la cuenta a la cual deseas tranferir: "))
                 while True:
                     while True:
                         try:
-                            monto1 = float(input("ingresa el monto a tranferir: "))
+                            monto1 = float(input("Ingresa el monto a tranferir: "))
                             print("#########################################################")
                             print("#########################################################")
                             break
                         except ValueError:
-                            print("Error, debe ingresar un numero entero:")
+                            print("Error, debe ingresar un numero entero: ")
                     if extraer(saldo, monto1) == 0:
                         print(
                             f"Monto excedido al saldo, su saldo es de ${saldo}")
@@ -108,11 +106,11 @@ def menu(saldo, dolar):
                 if confirmar == "si":
                     saldo -= monto1
                     print(
-                        "gracias tu tranferencia ha sido realizada!, tu saldo actual es de: $", saldo)
+                        "Gracias tu tranferencia ha sido realizada!, tu saldo actual es de: $", saldo)
                 elif confirmar == "no":
-                    print("transferencia cancelada")
+                    print("Transferencia cancelada ")
                 else:
-                    print("has ingresado un valor invalido")
+                    print("Has ingresado un valor invalido ")
                 list_trans.append(monto1)
             # compra de dolares
             case 5:
@@ -124,10 +122,10 @@ def menu(saldo, dolar):
                 while True:
                     while True:
                         try:
-                            compraDolar = float(input("ingresa el monto de dolares a comprar: "))
+                            compraDolar = float(input("Ingresa el monto de dolares a comprar: "))
                             break
                         except ValueError:
-                            print("Error, debe ingresar un numero entero:")
+                            print("Error, debe ingresar un numero entero: ")
                     conversiond = compraDolar * 164.5
                     print("#####################################")
                     if extraer(saldo, conversiond) == 0:
@@ -142,11 +140,11 @@ def menu(saldo, dolar):
                     saldo -= conversiond
                     dolar += compraDolar
                     print("#####################################################")
-                    print("tu saldo en tu cuenta pesos es de: $", saldo)
-                    print("tu saldo en tu cuenta dolares es de: u$s", dolar)
+                    print("Tu saldo en tu cuenta pesos es de: $", saldo)
+                    print("Tu saldo en tu cuenta dolares es de: u$s", dolar)
                     print("#####################################################")
                 elif confirma == "no":
-                    print("has cancelado tu compra")
+                    print("Has cancelado tu compra")
                 else:
                     print("Has ingresado un valor invalido ingresa 'si' o 'no' ")
                 list_compra.append(compraDolar)
@@ -245,7 +243,7 @@ def menu(saldo, dolar):
                                     dias2 = int(input("Ingrese el plazo (minimo 30 dias): "))
                                     break
                                 except ValueError:print("Error, debe ingresar un numero entero")
-                            if dias2 <= 30:
+                            if dias2 < 30:
                                 print("El plazo debe ser mayor a 30 dias: ")
                             else:
                                 break
@@ -287,13 +285,13 @@ def menu(saldo, dolar):
                     print(f"Se realizo plazo fijo de u$${i}")
             case 9:
                 print("Saliendo al menu de bienvenida.")
+                print("")
                 break
             case other:
                 print("Opcion ingresada no valida, vuelva a intentarlo: ")
 
 
 ###### funcion que valida el usuario######
-
 def usuario():
     print("----------has seleccionado el idioma español----------")
     print("")

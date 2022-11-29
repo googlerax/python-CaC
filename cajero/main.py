@@ -8,6 +8,5 @@ dolar= round(uniform(0, 2000),2)
 
 
 # menu ejecucion del cajero
-
 menu_bienvenida(saldo,dolar)
 
